@@ -1,0 +1,63 @@
+/************Gameboard**************/
+boy {
+  background-color: #FDFDFD;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3em;
+  color: #545454;
+}
+#gameboard {
+  width: 70%;
+  border: 2px solid #8B996E;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #F2FFF1;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+}
+.pieceContainer{
+  position: relative;
+  display: inline-block;
+  width: 15%;
+  margin: 1em 0 1em 4%;
+  height: 5em;
+  cursor: pointer;
+  transition:-webkit-transform .5s ease-in-out;
+  -webkit-perspective-origin: 50% 0%; /*center top, default value*/
+  -webkit-transform-style: preserve-3d; /*passing along its 3d perspective to its children*/
+}
+.flip{
+   -webkit-transform: rotateX(180deg); /* Flips the container */
+}
+.stayFlipped{
+   -webkit-transform: rotateX(180deg); /* Flips the container */  
+}
+.pieceContainer div {
+  position: absolute;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 3em;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8B996E;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden;
+}
+.pieceFront {
+  z-index: 100;
+  background-image: url("../images/Question_Mark.svg.png");
+}
+.pieceBack{
+  -webkit-transform: rotateX(-180deg);
+}
+
+#timer{
+  width: 50%;
+  margin: 2em auto;
+  color: #545454;
+}
+
+/* Add classes to different background img's so I can choose them at random via Math */
