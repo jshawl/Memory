@@ -4,7 +4,13 @@
     $( this ).addClass( "flip" );
 });
 
-  $(".pieceContainer" ).on( "click" , compareFlipped );
+  $( ".pieceContainer" ).on( "click" , time );
+
+  var timeKeeper;
+
+  function time() {
+    timeKeeper = setTimeout(compareFlipped, 500 );
+  }
 
 // Removes class to fire onclick event again
   // $(".pieceContainer").on( "mouseout" , function() {
@@ -50,6 +56,7 @@ function setSquare() {
 setSquare();
 
 function compareFlipped() {
+  clearTimeout(timeKeeper);
 
   var flipped = $( ".flip" );
 
@@ -60,10 +67,12 @@ function compareFlipped() {
 
     if(flipOne == flipTwo) {
       $( ".flip" ).addClass( "stayFlipped" );
+      $( ".pieceContainer" ).removeClass( "flip" );
     } else if (flipOne != flipTwo ) {
       $( ".pieceContainer" ).removeClass( "flip" );
     }
   }
+
 } // end compareFlipped;
 
 

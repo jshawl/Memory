@@ -1,5 +1,5 @@
 /************Gameboard**************/
-boy {
+body {
   background-color: #FDFDFD;
 }
 
@@ -33,7 +33,7 @@ h1 {
    -webkit-transform: rotateX(180deg); /* Flips the container */
 }
 .stayFlipped{
-   -webkit-transform: rotateX(180deg); /* Flips the container */  
+   -webkit-transform: rotateX(180deg); /* Flips the container */
 }
 .pieceContainer div {
   position: absolute;
