@@ -1,12 +1,8 @@
 var timeKeeper;
 
-var cards = document.querySelectorAll(".pieceBack");
+var cards = document.querySelectorAll( ".pieceBack" );
 
 var randomTracker = [];
-
-
-
-
 
 
 // Create a onclick event to rotate the squares
@@ -20,7 +16,7 @@ $( "button" ).on( "click" , clear );
 
 
 function time() {
-  timeKeeper = setTimeout(compareFlipped, 500 );
+  timeKeeper = setTimeout( compareFlipped , 500 );
 }
 
 
@@ -53,7 +49,7 @@ var counter = 0;
   }
 
   counter = randomTracker.pop();
-  cards[i].setAttribute( "data-id", counter);
+  cards[i].setAttribute( "data-id" , counter);
 }
 } // end setSquare
 
@@ -65,9 +61,9 @@ clearTimeout(timeKeeper);
 var flipped = $( ".flip" );
 
 if(flipped.length == 2) {
-  var flipOne = $( ".flip .pieceBack" ).eq(0).attr("data-id");
+  var flipOne = $( ".flip .pieceBack" ).eq(0).attr( "data-id" );
 
-  var flipTwo = $( ".flip .pieceBack" ).eq(1).attr("data-id");
+  var flipTwo = $( ".flip .pieceBack" ).eq(1).attr( "data-id" );
 
   if(flipOne == flipTwo) {
     $( ".flip" ).addClass( "stayFlipped" );
@@ -84,12 +80,16 @@ function winner() {
 var winner = $( ".stayFlipped");
 
 if(winner.length == 20) {
-  alert("Winner winner chicken dinner!");
+  $( ".pieceContainer" ).addClass( "winner" );
+  $( "#gameboard" ).prepend( "<h2>WINNER!!!!!!</h2>" );
+  }
 }
-}
+
 function clear() {
  $( ".pieceContainer").removeClass( "stayFlipped" );
- $( ".pieceBack" ).removeAttr("data-id");
+ $( ".pieceContainer").removeClass( "winner" );
+ $( ".pieceBack" ).removeAttr( "data-id" );
+ $( "h2" ).remove();
  randomCounter();
  setSquare();
 }
