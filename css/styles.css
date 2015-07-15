@@ -1,22 +1,25 @@
-/************Gameboard**************/
 body {
-  background-color: #FDFDFD;
+  background-color: #B09D8C;
 }
-
 h1 {
   text-align: center;
-  margin-top: 3em;
+  margin-top: .5em;
   color: #545454;
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size: 4em;
 }
+
+/************   Gameboard  **************/
+
 #gameboard {
   width: 70%;
-  border: 2px solid #8B996E;
   border-radius: 5px;
   margin: 0 auto;
   padding: 2em;
-  background-color: #F2FFF1;
+  background-color: #D9D9D1;
   -webkit-perspective: 800px;
   perspective: 800px;
+  box-shadow:  0 0 10px #4D392E;
 }
 .pieceContainer{
   position: relative;
@@ -25,15 +28,13 @@ h1 {
   margin: 1em 0 1em 4%;
   height: 5em;
   cursor: pointer;
+  /*border: 1px solid black;
+  border-radius: 5px;*/
+  box-shadow: 0 0 10px #4D392E;
   transition:-webkit-transform .5s ease-in-out;
   -webkit-perspective-origin: 50% 0%; /*center top, default value*/
   -webkit-transform-style: preserve-3d; /*passing along its 3d perspective to its children*/
-}
-.flip{
-   -webkit-transform: rotateX(180deg); /* Flips the container */
-}
-.stayFlipped{
-   -webkit-transform: rotateX(180deg); /* Flips the container */
+
 }
 .pieceContainer div {
   position: absolute;
@@ -42,7 +43,7 @@ h1 {
   background-size: 3em;
   width: 100%;
   height: 100%;
-  border: 1px solid #8B996E;
+  /*border: 1px solid #4D392E;*/
   border-radius: 5px;
   -webkit-backface-visibility: hidden;
 }
@@ -50,12 +51,23 @@ h1 {
   z-index: 100;
   background-image: url("../images/Question_Mark.svg.png");
 }
+
+/************   TRANSFORMS   **************/
+.flip{
+   -webkit-transform: rotateX(180deg); /* Flips the container */
+}
+.stayFlipped{
+   -webkit-transform: rotateX(180deg); /* Flips the container */
+}
 .pieceBack{
   -webkit-transform: rotateX(-180deg);
 }
 
-#timer{
-  width: 50%;
+
+/************   TIMER   **************/
+
+#reset{
+  width: 5%;
   margin: 2em auto;
   color: #545454;
 }

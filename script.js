@@ -6,16 +6,14 @@
 
   $( ".pieceContainer" ).on( "click" , time );
 
+  $( "button" ).on( "click" , clear );
+
   var timeKeeper;
 
   function time() {
     timeKeeper = setTimeout(compareFlipped, 500 );
   }
 
-// Removes class to fire onclick event again
-  // $(".pieceContainer").on( "mouseout" , function() {
-  //       $( this ) .removeClass("flip");
-  // });
 
   // using Math, chooses randomly how to set up board
 
@@ -38,7 +36,7 @@
 
   } // end of randomCounter
 
-randomCounter();
+randomCounter();  // set randomTracker to mix up square data-ids
 
 function setSquare() {
 
@@ -53,7 +51,7 @@ function setSquare() {
   }
 } // end setSquare
 
-setSquare();
+setSquare(); // puts background-image in squares
 
 function compareFlipped() {
   clearTimeout(timeKeeper);
@@ -68,6 +66,7 @@ function compareFlipped() {
     if(flipOne == flipTwo) {
       $( ".flip" ).addClass( "stayFlipped" );
       $( ".pieceContainer" ).removeClass( "flip" );
+      winner();
     } else if (flipOne != flipTwo ) {
       $( ".pieceContainer" ).removeClass( "flip" );
     }
@@ -75,11 +74,19 @@ function compareFlipped() {
 
 } // end compareFlipped;
 
+function winner() {
+  var winner = $( ".stayFlipped");
 
-
-// When a player clicks on a square it stores what was clicked on
-    // When two clicks happen, the getters are compared
-    // if equal, squares are kept on class .flip
+  if(winner.length == 20) {
+    alert("Winner winner chicken dinner!");
+  }
+}
+ function clear() {
+   $( ".pieceContainer").removeClass( "stayFlipped" );
+   $( ".pieceBack" ).removeAttr("data-id");
+   randomCounter();
+   setSquare();
+ }
 
 // When all squares are on .flip, player won the game
     // Have svgs pop out and spin?
