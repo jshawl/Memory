@@ -1,4 +1,15 @@
 
+  var timeKeeper;
+
+  var cards = document.querySelectorAll(".pieceBack");
+
+  var randomTracker = [];
+
+
+
+
+
+
 // Create a onclick event to rotate the squares
   $(".pieceContainer" ).on( "click" , function() {
     $( this ).addClass( "flip" );
@@ -8,7 +19,6 @@
 
   $( "button" ).on( "click" , clear );
 
-  var timeKeeper;
 
   function time() {
     timeKeeper = setTimeout(compareFlipped, 500 );
@@ -17,9 +27,6 @@
 
   // using Math, chooses randomly how to set up board
 
-  var cards = document.querySelectorAll(".pieceBack");
-
-  var randomTracker = [];
 
   function randomCounter() {
 
@@ -87,6 +94,3 @@ function winner() {
    randomCounter();
    setSquare();
  }
-
-// When all squares are on .flip, player won the game
-    // Have svgs pop out and spin?
