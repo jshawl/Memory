@@ -2,6 +2,7 @@
 [data-id="1"] {
     background-image: url("../images/JQuery_logo_text.svg");
     -webkit-transform: rotateX(-180deg);
+    /* remember to use the unprefixed form as well, but awesome! */
 }
 [data-id="2"] {
     background-image: url("../images/css3-logo.png");

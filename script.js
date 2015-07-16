@@ -3,11 +3,11 @@ var timeKeeper;
 var cards = document.querySelectorAll( ".pieceBack" );
 
 var randomTracker = [];
-
+// please remove empty lines and whitespace before submitting in the future.
 
 // Create a onclick event to rotate the squares
 $(".pieceContainer" ).on( "click" , function() {
-  $( this ).addClass( "flip" );
+  $( this ).addClass( "flip" ); //awesome use of classes here!!
 });
 
 $( ".pieceContainer" ).on( "click" , time );
@@ -49,8 +49,8 @@ var counter = 0;
   }
 
   counter = randomTracker.pop();
-  cards[i].setAttribute( "data-id" , counter);
-}
+  cards[i].setAttribute( "data-id" , counter); // awesome use of data attributes!
+} //remember to indent nested code blocks accordingly to increase readability
 } // end setSquare
 
 setSquare(); // puts background-image in squares
@@ -87,9 +87,14 @@ if(winner.length == 20) {
 
 function clear() {
  $( ".pieceContainer").removeClass( "stayFlipped" );
+ // you have uses this selecter a few times. Saving this to a variable will DRY up your code
+ // and increase performance!
  $( ".pieceContainer").removeClass( "winner" );
  $( ".pieceBack" ).removeAttr( "data-id" );
  $( "h2" ).remove();
  randomCounter();
  setSquare();
 }
+
+// I really like how you structured your code for this game. You are now just a few steps away from 
+// allowing users to choose how many cards they want and/or adding in a time limit for the game play.
